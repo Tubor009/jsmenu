@@ -1054,10 +1054,6 @@
 
     }
 
-    JSRadioButton.prototype = new JSCheckBoxMenuItem("", null);
-    JSRadioButton.prototype.constructor = JSRadioButton;
-
-
     window.JSMenuBar = JSMenuBar;
     window.JSMenu = JSMenu;
     window.JSMenuItem = JSMenuItem;
