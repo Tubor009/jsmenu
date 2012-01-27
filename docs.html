@@ -1,0 +1,1076 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>JSMENU</title>
+    <script type="text/javascript" src="js/jsmenu-min.js" charset="UTF-8"></script>
+
+
+
+    <style type="text/css">
+
+        #wrap{
+            width:800px;
+            position:relative;
+            margin: 0px auto;
+            font-family: georgia;
+
+        }
+        h1{
+            padding:2px 20px;
+            font-size:3em;
+        }
+        span.title{
+            display: block;
+            padding: 4px 10px;
+            border-right:1px solid black;
+            border-left:1px solid black;
+            border-top:1px solid black;
+            background:#add8e6;
+            font-size:1.1em;
+            text-align:center;
+            margin-top:20px;
+        }
+
+        div.node{
+            border:1px solid black;
+            padding:10px;
+            -moz-border-radius:10px;
+            -webkit-border-radius:10px;
+            border-radius:10px;
+            margin-top:15px;
+        }
+
+        div.description{
+            border:1px solid black;
+            padding:10px;
+        }
+
+        span.name{
+            margin-left:15px;
+            color:#38457D;
+            font-size:0.9em;
+            font-weight:bold;
+        }
+
+        span.opt{
+            color:#555555;
+            font-size:0.9em;
+            font-weight:bold;
+        }
+
+        span.codeKey{
+           color:#8b008b;
+        }
+        span.codeVal{
+           color:green;
+           font-weight:400;
+        }
+
+        a.button{
+            display:inline-block;
+            width:52px;
+            padding:1px 2px;
+            height:18px;
+            line-height:18px;
+            background-image:url('docImgs/show_plus.png');
+            background-position:39px 2px;
+            background-repeat:no-repeat;
+            text-decoration:none;
+            font-size:12px;
+            border:1px solid #a9a9a9;
+            -moz-border-radius:4px;
+            -webkit-border-radius:4px;
+            border-radius:4px;
+
+        }
+        a.button:hover{
+            cursor: pointer;
+        }
+
+        span.note{
+            color:#555555;
+            font-weight:bold;
+        }
+
+        #contesnts a{
+            color:blue;
+        }
+        #contesnts a:link{
+            color:blue;
+        }
+
+        div.exmaple{
+            margin-top:20px;
+            min-height:200px;
+        }
+
+        span.var{
+            color:blue;
+            font-weight:500;
+        }
+
+        span.method{
+            color:#cd853f;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <h1>JS Menu</h1>
+
+    <h2>Overview</h2>
+
+    <p>
+        This lib allows to create a classic drop-down menu. There are five classes:
+    <ul id="contesnts">
+        <li><a href="#JSMenuBar">JSMenuBar</a></li>
+        <li><a href="#JSMenu">JSMenu</a></li>
+        <li><a href="#JSMenuItem">JSMenuItem</a></li>
+        <li><a href="#JSRadioButton">JSRadioButton</a></li>
+        <li><a href="#JSCheckBox">JSCheckBox</a></li>
+    </ul>
+    </p>
+ <a name="JSMenuBar"></a>
+    <div class="node">
+        <h2>JSMenuBar</h2>
+        <span class="title">Constructors</span>
+        <div class="description">
+
+            <span class="name">JSMenuBar()</span>
+            <p>
+               Constructs a new JSMenuBar with default options.
+            </p>  <hr/>
+            <span class="name">JSMenuBar(options:Object)</span>
+            <p>
+               Constructs a new JSMenuBar with options.
+            </p> <hr/>
+            <p>
+                  <span class="opt">options</span> is a hash with objects that describe the style of the menu:
+                <ul>
+                   <li>
+                       <span class="opt">menuBar</span>  - styles for the menu bar container.
+                   </li>
+                   <li>
+                       <span class="opt">rootMenuOut</span>  - styles for each root menu when mouse outside of them.
+                   </li>
+                   <li>
+                       <span class="opt">rootMenuOver</span>  - styles for each root menu when mouse inside of them.
+                   </li>
+                   <li>
+                       <span class="opt">subMenu</span>  - styles for submenu container.
+                   </li>
+                   <li>
+                       <span class="opt">itemMenuOut</span>  - styles for each item in the submenus when mouse outside item.
+                   </li>
+                   <li>
+                       <span class="opt">itemMenuOver</span>  - styles for each item in the submenus when mouse inside item.
+                   </li>
+                </ul>
+            </p>
+            <hr/>
+            <p>
+               <span class="opt">default options:</span>
+                  <div>
+                     <script type="text/javascript">
+                         var opDef=false;
+                         function showDefOpts(){
+                             var q = document.getElementById("previewDefaultOps");
+                             if(opDef){
+                                 q.style.display = "none" ;
+                             }else{
+                                q.style.display = "block" ;
+                             }
+                             opDef=!opDef;
+                         }
+                     </script>
+                     <a class="button" onclick="showDefOpts()">Show</a>
+                  </div>
+
+
+               <div id="previewDefaultOps" style="display:none">
+            <pre style="text-align:left;padding-left:50px;">
+{
+    menuBar:{
+        <span class="codeKey">width</span>:<span class="codeVal">"100%"</span>,
+        <span class="codeKey">background</span>:<span class="codeVal">"#d3d3d3</span>"
+    },
+    rootMenuOut:{
+        <span class="codeKey">fontFamily</span>:<span class="codeVal">"georgia"</span>,
+        <span class="codeKey">padding</span>:<span class="codeVal">"3px 15px"</span>,
+        <span class="codeKey">background</span>:<span class="codeVal">"#d3d3d3"</span>,
+        <span class="codeKey">textAlign</span>:<span class="codeVal">"left"</span>
+    },
+    rootMenuOver:{
+        <span class="codeKey">fontFamily</span>:<span class="codeVal">"georgia"</span>,
+        <span class="codeKey">background</span>:<span class="codeVal">"#a9a9a9"</span>,
+        <span class="codeKey">cursor</span>:<span class="codeVal">"pointer"</span>
+    },
+    subMenu:{
+        <span class="codeKey">border</span>:<span class="codeVal">"1px solid black"</span>
+    },
+    itemMenuOut:{
+        <span class="codeKey">fontFamily</span>:<span class="codeVal">"georgia"</span>,
+        <span class="codeKey">background</span>:<span class="codeVal">"#d3d3d3"</span>,
+        <span class="codeKey">textAlign</span>:<span class="codeVal">"left"</span>,
+        <span class="codeKey">padding</span>:<span class="codeVal">"3px 20px"</span>
+    },
+    itemMenuOver:{
+        <span class="codeKey">fontFamily</span>:<span class="codeVal">"georgia"</span>,
+        <span class="codeKey">background</span>:<span class="codeVal">"#a9a9a9"</span>,
+        <span class="codeKey">cursor</span>:<span class="codeVal">"pointer"</span>
+    }
+}
+            </pre>
+            </div>
+            </p>
+
+        </div>
+
+        <span class="title">Methods</span>
+
+        <div class="description">
+            <span class="name">add(menu:JSMenu)</span>
+            <p>
+                Adds JSMenu instance to the end of the menu bar.
+            </p>
+            <hr/>
+            <span class="name">appendTo(elem:Element)</span>
+            <p>
+                Adds JSMenuBar instance to the specified element.
+            </p>
+            <hr/>
+            <span class="name">destruct()</span>
+            <p>
+                Deletes all functionality and removes menu from page;
+            </p>
+            <hr/>
+            <span class="name">build()</span>
+            <p>
+                Creates handlers and builds all items what are added before this calling. <br/>
+               <span class="note">Note</span>, call this method when DOM-structure is loaded. If you do not call this method, the menu will be constructed at the first mouseover on menubar.
+            </p>
+        </div>
+
+
+    </div>
+<a name="JSMenu"></a>
+<div class="node">
+      <h2>JSMenu</h2>
+
+    <span class="title">Constructors</span>
+    <div class="description">
+         <span class="name">JSMenu(label:String)</span>
+          <p>
+             Constructs a new JSMenu with specified label;
+          </p>
+        <hr/>
+         <span class="name">JSMenu(label:String, iconUrl:String)</span>
+          <p>
+             Constructs a new JSMenu with specified label and icon. Icon located in left side of menu; So you need be careful with "<span class="codeVal">padding</span>" - style of this menu.
+          </p>
+    </div>
+
+    <span class="title">Methods</span>
+    <div class="description">
+          <span class="name">add(item:JSMenuItem)</span>
+          <p>
+              Adds JSMenuItem instance to the end of this submenu.
+          </p>   <hr/>
+          <span class="name">add(item:JSRadioButton)</span>
+          <p>
+              Adds JSRadioButton instance to the end of this submenu.
+          </p>  <hr/>
+          <span class="name">add(item:JSCheckBox)</span>
+          <p>
+              Adds JSCheckBox instance to the end of this submenu.
+          </p> <hr/>
+          <span class="name">addSeparator(color:String)</span>
+          <p>
+              Adds a separator line with the specified color at the end of this menu. The default color - black.
+          </p>
+           <hr/>
+          <span class="name">addIcon(url:String)</span>
+          <p>
+              Adds icon to the left side of this menu.
+          </p>
+    </div>
+
+</div>
+
+<a name="JSMenuItem"></a>
+ <div class="node">
+    <h2>JSMenuItem</h2>
+     <span class="title">Constructors</span>
+     <div class="description">
+         <span class="name">JSMenuItem(label:String, options:Object)</span>
+         <p>
+             Constructs a new JSMenuItem with specified label; <hr/>
+             <span class="opt">options</span>(optional):<br/>
+             <ul>
+                  <li>
+                      <span class="opt">icon</span> - url of image. Icon will be on the left side of item.
+                  </li>
+                  <li>
+                      <span class="opt">clickHandler</span> - callback function.
+                  </li>
+             </ul>
+         </p>
+     </div>
+
+     <span class="title">Methods</span>
+     <div class="description">
+         <span class="name">addClickHandler(f:Function)</span>
+         <p>
+             Adds callback function
+         </p>
+         <hr/>
+         <span class="name">addIcon(url:String)</span>
+         <p>
+             Adds icon. Icon will be on the left side of item.
+         </p>
+     </div>
+ </div>
+<a name="JSRadioButton"></a>
+<div class="node">
+    <h2>JSRadioButton</h2>
+    <span class="title">Constructors</span>
+    <div class="description">
+          <span class="name">JSRadioButton(label:String, options:Object)</span>
+        <p>
+           Constructs a new JSRadioButton with specified label; <hr/>
+          <span class="opt">options</span>(optional): <br/>
+           <ul>
+               <li>
+                   <span class="opt">checked</span> - boolean state .
+               </li>
+               <li>
+                  <span class="opt">clickHandler</span> - callback function.
+               </li>
+           </ul>
+        </p>
+    </div>
+
+    <span class="title">Methods</span>
+    <div class="description">
+        <span class="name">addClickHandler(f:Function)</span>
+         <p>
+             Adds callback function
+         </p><hr/>
+        <span class="name">getState():Boolean</span>
+         <p>
+             Returns state of this item.
+         </p><hr/>
+        <span class="name">setState(b:Boolean)</span>
+         <p>
+             Sets state for this item.
+         </p>
+    </div>
+</div>
+<a name="JSCheckBox"></a>
+<div class="node">
+    <h2>JSCheckBox</h2>
+    <span class="title">Constructors</span>
+    <div class="description">
+          <span class="name">JSCheckBox(label:String, options:Object)</span>
+        <p>
+           Constructs a new JSCheckBox with specified label; <hr/>
+          <span class="opt">options</span>(optional): <br/>
+           <ul>
+               <li>
+                   <span class="opt">checked</span> - boolean state .
+               </li>
+               <li>
+                  <span class="opt">clickHandler</span> - callback function.
+               </li>
+           </ul>
+        </p>
+    </div>
+    <span class="title">Methods</span>
+    <div class="description">
+        <span class="name">addClickHandler(f:Function)</span>
+         <p>
+             Adds callback function
+         </p><hr/>
+        <span class="name">getState():Boolean</span>
+         <p>
+             Returns state of this item.
+         </p><hr/>
+        <span class="name">setState(b:Boolean)</span>
+         <p>
+             Sets state for this item.
+         </p>
+    </div>
+</div>
+
+
+<div class="node">
+    <h3 style="text-align:center">Examples</h3>
+<div class="exmaple">
+     <h4>Example 1 <a class="button" style="width:90px; background-position:75px 2px;" onclick="showCodeOfExample1()">Show code</a></h4>
+    <div id="menu1"></div>
+    <script type="text/javascript">
+        var menuContainer = document.getElementById("menu1");
+
+        var jsMenuBar = new JSMenuBar({
+            menuBar:{
+                width:"100%"
+            },
+            itemMenuOut:{
+                fontSize:"12px"
+            }
+        });
+
+        jsMenuBar.appendTo(menuContainer);
+
+        var menuFile = createMenuFile();
+        jsMenuBar.add(menuFile);
+
+        jsMenuBar.add(createMenuEdit());
+
+        jsMenuBar.add(createMenuView());
+
+        jsMenuBar.add(createMenuService());
+
+
+        function createMenuFile(){
+              var menuFile = new JSMenu("File");
+              var itemNew = new JSMenuItem("New...");
+              menuFile.add(itemNew);
+              itemNew.addClickHandler(function(e){
+                  alert("New...");
+              })
+
+              var itemOpen = new JSMenuItem("Open...",{
+                 icon:"docImgs/open.png",
+                 clickHandler:function(e){
+                     alert("Open");
+                 }
+              });
+              menuFile.add(itemOpen);
+
+              menuFile.add(new JSMenuItem("Save As...",{
+                 clickHandler:function(e){alert("Save As...")},
+                 icon:"docImgs/save_blue.png"
+              }));
+
+              menuFile.add(new JSMenuItem("Save All",{
+                 clickHandler:function(e){alert("Save All")},
+                 icon:"docImgs/saveall_blue.png"
+              }));
+              menuFile.addSeparator();
+              menuFile.add(new JSMenuItem("Exit",{
+                 clickHandler:function(e){alert("Exit")}
+              }));
+
+              return menuFile;
+        }
+
+        function createMenuEdit(){
+            var menuEdit = new JSMenu("Edit");
+            menuEdit.add(new JSMenuItem("Undo"));
+            menuEdit.add(new JSMenuItem("Redo"));
+            menuEdit.addSeparator();
+            menuEdit.add(new JSMenuItem("Copy"));
+            menuEdit.add(new JSMenuItem("Cut"));
+            menuEdit.add(new JSMenuItem("Paste"));
+            menuEdit.add(new JSMenuItem("Delete"));
+            menuEdit.addSeparator();
+            menuEdit.add(new JSMenuItem("Find",{
+                icon:"docImgs/find.png"
+            }));
+            menuEdit.add(new JSMenuItem("Find And Replace...",{
+                icon:"docImgs/find_all.png"
+            }));
+            return menuEdit;
+        }
+
+        function createMenuView(){
+            var viewMenu = new JSMenu("View");
+            var checkedStatusBar = new JSCheckBox("Status Bar",{
+                checked:true,
+                clickHandler:function(e){
+                      alert(checkedStatusBar.getState());
+                }
+            });
+            viewMenu.add(checkedStatusBar);
+            viewMenu.add(new JSCheckBox("Toolbar"));
+            viewMenu.add(new JSCheckBox("Navigation Bar"));
+            viewMenu.add(new JSCheckBox("Show gadgets"));
+            viewMenu.addSeparator();
+
+            var menuScale = new JSMenu("Scale");
+            viewMenu.add(menuScale);
+
+            var radio1 = new JSRadioButton("100%",{
+                checked:true,
+                clickHandler:function(e){
+                    radio1.setState(true);
+                    radio2.setState(false);
+                }
+            });
+
+            var radio2 = new JSRadioButton("50%",{
+                checked:false,
+                clickHandler:function(e){
+                    radio2.setState(true);
+                    radio1.setState(false);
+                }
+            });
+            menuScale.add(radio1);
+            menuScale.add(radio2);
+
+            var menuPageDisplay = new JSMenu("Page Display");
+
+            menuPageDisplay.add(new JSCheckBox("Two Page View",{checked:true}));
+            menuPageDisplay.add(new JSCheckBox("Enable Scrolling"));
+            menuPageDisplay.addSeparator();
+            menuPageDisplay.add(new JSCheckBox("Automatically Scrolling"));
+
+            viewMenu.add(menuPageDisplay);
+
+            return viewMenu;
+        }
+
+        function createMenuService(){
+            var menuService = new JSMenu('Service');
+
+            var menuLanguage= new JSMenu("Language");
+
+            var radio1 = new JSRadioButton("Automatically",{
+                checked:true,
+                clickHandler:function(e){
+                    radio1.setState(true);
+                    radio2.setState(false);
+                    radio3.setState(false);
+                }
+            });
+
+            var radio2 = new JSRadioButton("English",{
+                checked:false,
+                clickHandler:function(e){
+                    radio2.setState(true);
+                    radio1.setState(false);
+                    radio3.setState(false);
+                }
+            });
+
+            var radio3 = new JSRadioButton("Russian",{
+                checked:false,
+                clickHandler:function(e){
+                    radio3.setState(true);
+                    radio1.setState(false);
+                    radio2.setState(false);
+                }
+            });
+
+            menuLanguage.add(radio1);
+            menuLanguage.addSeparator();
+            menuLanguage.add(radio2);
+            menuLanguage.add(radio3);
+            menuService.add(menuLanguage);
+
+
+            var menuSetting = new JSMenu("Settings","docImgs/settings.png");
+            menuService.add(menuSetting);
+            menuSetting.add(new JSMenuItem("Template Settings..."));
+            menuSetting.add(new JSMenuItem("Encode Settings..."));
+            menuSetting.add(new JSMenuItem("Font Settings..."));
+
+            var menuAppSetting = new JSMenu("Application settings");
+            menuAppSetting.add(new JSMenuItem("Editor Settings..."))
+
+            var menuDB = new JSMenu("Data Base Settings");
+            menuDB.add(new JSMenuItem("Open Current Base"));
+            menuDB.addSeparator();
+            menuDB.add(new JSMenuItem("Access Settings",{
+                icon:"docImgs/access.png"
+            }));
+            menuDB.add(new JSMenuItem("Choose Provider"));
+            menuAppSetting.add(menuDB);
+            menuAppSetting.add(new JSMenuItem("Notifications..."));
+            menuAppSetting.add(new JSMenuItem("Plugins..."));
+
+            menuSetting.add(menuAppSetting);
+            return menuService;
+        }
+
+    </script>
+<div id="example1" style="display:none">
+        <pre>
+        <span class="var">var</span> menuContainer = document.getElementById("menu");
+
+        <span class="var">var</span> jsMenuBar = new JSMenuBar({
+            <span class="codeKey">menuBar</span>:{
+                <span class="codeKey">width</span>:"100%"
+            },
+            <span class="codeKey">itemMenuOut</span>:{
+                <span class="codeKey">fontSize</span>:"12px"
+            }
+        });
+
+        jsMenuBar.<span class="method">appendTo</span>(menuContainer);
+
+        <span class="var">var</span> menuFile = createMenuFile();
+        jsMenuBar.<span class="method">add</span>(menuFile);
+
+        jsMenuBar.<span class="method">add</span>(createMenuEdit());
+
+        jsMenuBar.<span class="method">add</span>(createMenuView());
+
+        jsMenuBar.<span class="method">add</span>(createMenuService());
+
+            function createMenuFile(){
+                  <span class="var">var</span> menuFile = <span class="var">new</span> JSMenu("File");
+                  <span class="var">var</span> itemNew = <span class="var">new</span> JSMenuItem("<span class="var">new</span>...");
+                  menuFile.<span class="method">add</span>(itemNew);
+                  itemNew.addClickHandler(function(e){
+                      alert("New...");
+                  })
+
+                  <span class="var">var</span> itemOpen = <span class="var">new</span> JSMenuItem("Open...",{
+                     <span class="codeKey">icon</span>:"docImgs/open.png",
+                     <span class="codeKey">clickHandler</span>:function(e){
+                         alert("Open");
+                     }
+                  });
+                  menuFile.<span class="method">add</span>(itemOpen);
+
+                  menuFile.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Save As...",{
+                     <span class="codeKey">clickHandler</span>:function(e){alert("Save As...")},
+                     <span class="codeKey">icon</span>:"docImgs/save_blue.png"
+                  }));
+
+                  menuFile.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Save All",{
+                     <span class="codeKey">clickHandler</span>:function(e){alert("Save All")},
+                     <span class="codeKey">icon</span>:"docImgs/saveall_blue.png"
+                  }));
+                  menuFile.<span class="method">addSeparator</span>();
+                  menuFile.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Exit",{
+                     <span class="codeKey">clickHandler</span>:function(e){alert("Exit")}
+                  }));
+
+                  return menuFile;
+            }
+
+            function createMenuEdit(){
+                <span class="var">var</span> menuEdit = <span class="var">new</span> JSMenu("Edit");
+                menuEdit.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Undo"));
+                menuEdit.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Redo"));
+                menuEdit.<span class="method">addSeparator</span>();
+                menuEdit.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Copy"));
+                menuEdit.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Cut"));
+                menuEdit.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Paste"));
+                menuEdit.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Delete"));
+                menuEdit.<span class="method">addSeparator</span>();
+                menuEdit.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Find",{
+                    <span class="codeKey">icon</span>:"docImgs/find.png"
+                }));
+                menuEdit.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Find And Replace...",{
+                    <span class="codeKey">icon</span>:"docImgs/find_all.png"
+                }));
+                return menuEdit;
+            }
+
+            function createMenuView(){
+                <span class="var">var</span> viewMenu = <span class="var">new</span> JSMenu("View");
+                <span class="var">var</span> checkedStatusBar = <span class="var">new</span> JSCheckBox("Status Bar",{
+                    <span class="codeKey">checked</span>:true,
+                    <span class="codeKey">clickHandler</span>:function(e){
+                          alert(checkedStatusBar.getState());
+                    }
+                });
+                viewMenu.<span class="method">add</span>(checkedStatusBar);
+                viewMenu.<span class="method">add</span>(<span class="var">new</span> JSCheckBox("Toolbar"));
+                viewMenu.<span class="method">add</span>(<span class="var">new</span> JSCheckBox("Navigation Bar"));
+                viewMenu.<span class="method">add</span>(<span class="var">new</span> JSCheckBox("Show gadgets"));
+                viewMenu.<span class="method">addSeparator</span>();
+
+                <span class="var">var</span> menuScale = <span class="var">new</span> JSMenu("Scale");
+                viewMenu.<span class="method">add</span>(menuScale);
+
+                <span class="var">var</span> radio1 = <span class="var">new</span> JSRadioButton("100%",{
+                    <span class="codeKey">checked</span>:true,
+                    <span class="codeKey">clickHandler</span>:function(e){
+                        radio1.setState(true);
+                        radio2.setState(false);
+                    }
+                });
+
+                <span class="var">var</span> radio2 = <span class="var">new</span> JSRadioButton("50%",{
+                    <span class="codeKey">checked</span>:false,
+                    <span class="codeKey">clickHandler</span>:function(e){
+                        radio2.setState(true);
+                        radio1.setState(false);
+                    }
+                });
+                menuScale.<span class="method">add</span>(radio1);
+                menuScale.<span class="method">add</span>(radio2);
+
+                <span class="var">var</span> menuPageDisplay = <span class="var">new</span> JSMenu("Page Display");
+
+                menuPageDisplay.<span class="method">add</span>(<span class="var">new</span> JSCheckBox("Two Page View",{checked:true}));
+                menuPageDisplay.<span class="method">add</span>(<span class="var">new</span> JSCheckBox("Enable Scrolling"));
+                menuPageDisplay.<span class="method">addSeparator</span>();
+                menuPageDisplay.<span class="method">add</span>(<span class="var">new</span> JSCheckBox("Automatically Scrolling"));
+
+                viewMenu.<span class="method">add</span>(menuPageDisplay);
+
+                return viewMenu;
+            }
+
+            function createMenuService(){
+                <span class="var">var</span> menuService = <span class="var">new</span> JSMenu('Service');
+
+                <span class="var">var</span> menuLanguage= <span class="var">new</span> JSMenu("Language");
+
+                <span class="var">var</span> radio1 = <span class="var">new</span> JSRadioButton("Automatically",{
+                    <span class="codeKey">checked</span>:true,
+                    <span class="codeKey">clickHandler</span>:function(e){
+                        radio1.setState(true);
+                        radio2.setState(false);
+                        radio3.setState(false);
+                    }
+                });
+
+                <span class="var">var</span> radio2 = <span class="var">new</span> JSRadioButton("English",{
+                    <span class="codeKey">checked</span>:false,
+                    <span class="codeKey">clickHandler</span>:function(e){
+                        radio2.setState(true);
+                        radio1.setState(false);
+                        radio3.setState(false);
+                    }
+                });
+
+                <span class="var">var</span> radio3 = <span class="var">new</span> JSRadioButton("Russian",{
+                    <span class="codeKey">checked</span>:false,
+                    <span class="codeKey">clickHandler</span>:function(e){
+                        radio3.setState(true);
+                        radio1.setState(false);
+                        radio2.setState(false);
+                    }
+                });
+
+                menuLanguage.<span class="method">add</span>(radio1);
+                menuLanguage.<span class="method">addSeparator</span>();
+                menuLanguage.<span class="method">add</span>(radio2);
+                menuLanguage.<span class="method">add</span>(radio3);
+                menuService.<span class="method">add</span>(menuLanguage);
+
+
+                <span class="var">var</span> menuSetting = <span class="var">new</span> JSMenu("Settings","docImgs/settings.png");
+                menuService.<span class="method">add</span>(menuSetting);
+                menuSetting.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Template Settings..."));
+                menuSetting.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Encode Settings..."));
+                menuSetting.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Font Settings..."));
+
+                <span class="var">var</span> menuAppSetting = <span class="var">new</span> JSMenu("Application settings");
+                menuAppSetting.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Editor Settings..."))
+
+                <span class="var">var</span> menuDB = <span class="var">new</span> JSMenu("Data Base Settings");
+                menuDB.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Open Current Base"));
+                menuDB.<span class="method">addSeparator</span>();
+                menuDB.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Access Settings",{
+                    <span class="codeKey">icon</span>::"docImgs/access.png"
+                }));
+                menuDB.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Choose Provider"));
+                menuAppSetting.<span class="method">add</span>(menuDB);
+                menuAppSetting.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Notifications..."));
+                menuAppSetting.<span class="method">add</span>(<span class="var">new</span> JSMenuItem("Plugins..."));
+
+                menuSetting.<span class="method">add</span>(menuAppSetting);
+                return menuService;
+            }
+
+        </pre>
+    </div>
+</div>
+
+
+<div class="exmaple">
+    <h4>Example 2 <a class="button" style="width:90px; background-position:75px 2px;" onclick="showCodeOfExample2()">Show code</a></h4>
+    <div id="menu2"></div>
+
+    <script type="text/javascript">
+          var menuContainer1 = document.getElementById("menu2");
+
+        var jsMenuBar1 = new JSMenuBar({
+            menuBar:{
+                width:"560px",
+                background:"#25437D",
+                height:"40px",
+                border:"2px solid #6A8DD9",
+                mozBorderRadius:"10px",
+                webkitBorderRadius:"10px",
+                borderRadius:"10px",
+                padding:"0px 40px",
+                margin:"0 auto"
+
+            },
+            rootMenuOut:{
+              height:"40px",
+              background:"#25437D",
+              lineHeight:"40px",
+              padding:"0px",
+              width:"70px",
+              color:"white",
+              textAlign:"center",
+              border:"none"
+            },
+            rootMenuOver:{
+               background:"#8DA1C9",
+               color:"#383838",
+                width:"68px",
+                borderLeft:"1px solid #aac5f7",
+                borderRight:"1px solid #aac5f7"
+            },
+
+            itemMenuOut:{
+                color:"white",
+                fontSize:"16px",
+                background:"#25437D",
+                lineHeight:"normal" //disable inherited from root style
+            },
+            itemMenuOver:{
+               background:"#8DA1C9",
+               color:"#383838"
+            }
+
+        });
+
+        jsMenuBar1.appendTo(menuContainer1);
+
+        var menuFile = createMenuFile();
+        jsMenuBar1.add(menuFile);
+
+        jsMenuBar1.add(createMenuEdit());
+
+        jsMenuBar1.add(createMenuView());
+
+        jsMenuBar1.add(createMenuService());
+    </script>
+
+   <div id="example2" style="display:none;">
+       <pre>
+           <span class="codeKey"></span>
+         <span class="var">var</span> jsMenuBar1 = new JSMenuBar({
+            <span class="codeKey">menuBar</span>:{
+                <span class="codeKey">width</span>:"560px",
+                <span class="codeKey">background</span>:"#25437D",
+                <span class="codeKey">height</span>:"40px",
+                <span class="codeKey">border</span>:"2px solid #6A8DD9",
+                <span class="codeKey">mozBorderRadius</span>:"10px",
+                <span class="codeKey">webkitBorderRadius</span>:"10px",
+                <span class="codeKey">borderRadius</span>:"10px",
+                <span class="codeKey">padding</span>:"0px 40px",
+                <span class="codeKey">margin</span>:"0 auto"
+            },
+            <span class="codeKey">rootMenuOut</span>:{
+              <span class="codeKey">height</span>:"40px",
+              <span class="codeKey">background</span>:"#25437D",
+              <span class="codeKey">lineHeight</span>:"40px",
+              <span class="codeKey">padding</span>:"0px",
+              <span class="codeKey">width</span>:"70px",
+              <span class="codeKey">color</span>:"white",
+              <span class="codeKey">textAlign</span>:"center",
+              <span class="codeKey">border</span>:"none"
+            },
+            <span class="codeKey">rootMenuOver</span>:{
+                <span class="codeKey">background</span>:"#8DA1C9",
+                <span class="codeKey">color</span>:"#383838",
+                <span class="codeKey">width</span>:"68px",
+                <span class="codeKey">borderLeft</span>:"1px solid #aac5f7",
+                <span class="codeKey">borderRight</span>:"1px solid #aac5f7"
+            },
+
+            <span class="codeKey">itemMenuOut</span>:{
+                <span class="codeKey">color</span>:"white",
+                <span class="codeKey">fontSize</span>:"16px",
+                <span class="codeKey">background</span>:"#25437D",
+                <span class="codeKey">lineHeight</span>:"normal" //disable inherited from root style
+            },
+            <span class="codeKey">itemMenuOver</span>:{
+               <span class="codeKey">background</span>:"#8DA1C9",
+               <span class="codeKey">color</span>:"#383838"
+            }
+
+        });
+       </pre>
+   </div>
+
+</div>
+
+<div class="exmaple">
+    <h4>Example 3 <a class="button" style="width:90px; background-position:75px 2px;" onclick="showCodeOfExample3()">Show code</a></h4>
+    <div id="menu3"></div>
+
+    <script type="text/javascript">
+          var menuContainer2 = document.getElementById("menu3");
+
+        var jsMenuBar2 = new JSMenuBar({
+            menuBar:{
+                width:"560px",
+                background:"white",
+                height:"50px" ,
+                border:"none",
+                padding:"0px 40px",
+                margin:"0 auto"
+
+            },
+            rootMenuOut:{
+              padding:"0px 20px",
+              height:"50px",
+              width:"60px",
+              fontSize:"18px",
+              background:"white",
+              lineHeight:"50px",
+              border:"none",
+              color:"#656565",
+              textAlign:"center",
+              mozBorderRadius:"20px",
+              webkitBorderRadius:"20px",
+              borderRadius:"20px"
+            },
+            rootMenuOver:{
+               background:"#656565",
+               color:"white"
+            },
+
+            itemMenuOut:{
+                color:"#656565",
+                fontSize:"16px",
+                background:"white",
+                lineHeight:"normal" //disable inherited from root style
+
+            },
+            itemMenuOver:{
+               background:"#656565",
+               color:"white"
+            },
+            subMenu:{
+              background:"white",
+              border:"1px solid #656565",
+              mozBorderRadius:"10px",
+              webkitBorderRadius:"10px",
+              borderRadius:"10px",
+              padding:"11px 0px"
+            }
+
+        });
+
+        jsMenuBar2.appendTo(menuContainer2);
+
+        jsMenuBar2.add(createMenuFile());
+
+        jsMenuBar2.add(createMenuEdit());
+
+        jsMenuBar2.add(createMenuView());
+
+        jsMenuBar2.add(createMenuService());
+    </script>
+
+   <div id="example3" style="display:none;">
+       <pre>
+          <span class="var">var</span> jsMenuBar = new JSMenuBar({
+            <span class="codeKey">menuBar</span>:{
+                <span class="codeKey">width</span>:"560px",
+                <span class="codeKey">background</span>:"white",
+                <span class="codeKey">height</span>:"50px" ,
+                <span class="codeKey">border</span>:"none",
+                <span class="codeKey">padding</span>:"0px 40px",
+                <span class="codeKey">margin</span>:"0 auto"
+
+            },
+            <span class="codeKey">rootMenuOut</span>:{
+              <span class="codeKey">padding</span>:"0px 20px",
+              <span class="codeKey">height</span>:"50px",
+              <span class="codeKey">width</span>:"60px",
+              <span class="codeKey">fontSize</span>:"18px",
+              <span class="codeKey">background</span>:"white",
+              <span class="codeKey">lineHeight</span>:"50px",
+              <span class="codeKey">border</span>:"none",
+              <span class="codeKey">color</span>:"#656565",
+              <span class="codeKey">textAlign</span>:"center",
+              <span class="codeKey">mozBorderRadius</span>:"20px",
+             <span class="codeKey">webkitBorderRadius</span>:"20px",
+              <span class="codeKey">borderRadius</span>:"20px"
+            },
+            <span class="codeKey">rootMenuOver</span>:{
+               <span class="codeKey">background</span>:"#656565",
+               <span class="codeKey">color</span>:"white"
+            },
+
+            <span class="codeKey">itemMenuOu</span>t:{
+                <span class="codeKey">color</span>:"#656565",
+                <span class="codeKey">fontSize</span>:"16px",
+                <span class="codeKey">background</span>:"white",
+                <span class="codeKey">lineHeight</span>:"normal" //disable inherited from root style
+
+            },
+            <span class="codeKey">itemMenuOver</span>:{
+               <span class="codeKey">background</span>:"#656565",
+               <span class="codeKey">color</span>:"white"
+            },
+            <span class="codeKey">subMenu</span>:{
+              <span class="codeKey">background</span>:"white",
+              <span class="codeKey">border</span>:"1px solid #656565",
+              <span class="codeKey">mozBorderRadius</span>:"10px",
+              <span class="codeKey">webkitBorderRadius</span>:"10px",
+              <span class="codeKey">borderRadius</span>:"10px",
+              <span class="codeKey">padding</span>:"11px 0px"
+            }
+
+        });
+
+        });
+       </pre>
+   </div>
+
+</div>
+
+
+    <script type="text/javascript">
+        var ex1 = false;
+        var ex2 = false;
+        var ex3 = false;
+        function showCodeOfExample1() {
+            var q = document.getElementById("example1");
+            if (ex1) {
+                q.style.display = "none";
+            } else {
+                q.style.display = "block";
+            }
+            ex1 = !ex1;
+        }
+
+        function showCodeOfExample2() {
+            var q = document.getElementById("example2");
+            if (ex2) {
+                q.style.display = "none";
+            } else {
+                q.style.display = "block";
+            }
+            ex2 = !ex2;
+        }
+
+        function showCodeOfExample3() {
+            var q = document.getElementById("example3");
+            if (ex2) {
+                q.style.display = "none";
+            } else {
+                q.style.display = "block";
+            }
+            ex2 = !ex2;
+        }
+    </script>
+</div>
+
+</div>
+
+
+</body>
+
+</html>
+
